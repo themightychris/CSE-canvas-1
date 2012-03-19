@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Canvas Example - Draw at a point</title>
+	</head>
+	<body>
+		<canvas width="250" height="250" id="myCanvas"></canvas>
+		
+		<form id="canvasForm">
+			<label>x <input type="text" name="x" size="3" value="10"></label>
+			<label>y <input type="text" name="y" size="3" value="15" ></label>
+            <label>color <input type="text" name="color" size="7" value="#0000ff"></label>
+			<label>radius <input type="text" name="radius" size="3" value="20"></label>
+			<input type="submit" value="Draw Circle">
+		</form>
+		
+		<script>
+			var canvas = document.getElementById('myCanvas');
+			var ctx = canvas.getContext('2d');
+			
+			var form = document.getElementById('canvasForm');
+			form.addEventListener('submit', function(event) {
+				event.preventDefault();
+				
+				drawCircle(form.x.value, form.y.value, form.radius.value, form.color.value);
+			});
+			
+			function drawCircle(x, y, radius, color)
+			{
+				
+				// draw a circle and fill it in
+				ctx.beginPath();
+				ctx.arc(x, y, radius, 0, Math.PI*2, true);
+				ctx.closePath();
+				
+				// set the fill color to red
+				ctx.fillStyle= color || "#FF0000";
+    			ctx.fill();
+			}
+			
+			
+			
+		</script>
+	</body>
+</html>
