@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Canvas Example - Draw at a point</title>
+		<style>
+		#myCanvas {
+			border: 1px dotted red;
+		}
+		</style>
+	</head>
+	<body>
+		<canvas width="250" height="250" id="myCanvas"></canvas>
+		
+		
+		<script>
+			var canvas = document.getElementById('myCanvas');
+			var ctx = canvas.getContext('2d');
+			
+			canvas.addEventListener('mousemove', function(event) {
+				console.log('mousemove at (%o, %o)', event.offsetX, event.offsetY);
+			});
+			
+		</script>
+	</body>
+</html>
